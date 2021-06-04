@@ -1,0 +1,99 @@
+<%- include ('partials/header.ejs') %>
+
+    <div class="stage">
+        <div class="left-stage">left
+
+
+        </div>
+        <div class="center-stage">
+            <div class="init">init</div>
+            <div class="chat-area">
+                
+                <img alt="img" class="initChatPic" src="/images/nightsky.jpg">
+                <div class="currentChat">
+                    <img alt="img" class="receiverDp" src=<%=user.displayPic=="" ? "/images/nightsky.jpg"
+                        : "/user_images/" + user._id + "/displayPic/" + user.displayPic %>>
+                    <div class="receiverDetails">
+                        <h2 class="receiverName">Name</h2>
+                        <p class="receiverId" style="display: none;">userId</p>
+                        <p class="receiverEmail" style="display: none;">userEmail</p>
+                    </div>
+                </div>
+                <div class="chats">
+                    <!-- <div class="msg left">hey Rohan</div>
+                    <div class="msg right">hey Harry</div>
+                    <div class="msg left">hey Rohan</div> -->
+                </div>
+                <form action="#" class="msg-form">
+
+                    <input type="text" class="msg-input">
+                    <button class="send">send</button>
+                </form>
+            </div>
+
+        </div>
+        <div class="right-stage">right
+            <div class="contactList">
+
+                <div class="chatsHeading">
+                    <h2>Chats</h2>
+                </div>
+                <!-- <a href="#" class="contactLink">
+                    <div class="contact">
+                        <img alt="img" class="contactDp" src=<%=user.displayPic=="" ? "/images/nightsky.jpg"
+                            : "/user_images/" + user._id + "/displayPic/" + user.displayPic %>>
+                        <div class="details">
+                            <h2>Name</h2>
+                            <p>msg</p>
+                        </div>
+                    </div>
+                </a> -->
+
+
+
+
+
+                <% user.chatList.forEach(function(chat){ %>
+                    
+                <button class="contactLink" id= <%= chat.receiverId._id %> data_mail =<%= chat.receiverId.email %>>
+                    <div class="contact">
+                        <img alt="img" class="contactDp" src=<%= chat.receiverId.displayPic == "" ? "/images/nightsky.jpg" : "/user_images/" + chat.receiverId._id + "/displayPic/" + chat.receiverId.displayPic %>>
+                        <div class="details">
+                            <h2 class="chatName"><%= chat.receiverId.name %></h2>
+                            <span class="chatEmail" style="display: none;"><%= chat.receiverId.email %></span>
+                            <span class="chatId" style="display: none;"><%= chat.receiverId._id %></span>
+                            <p>msg</p>
+                        </div>
+                    </div>
+                </button>
+                <% });%>
+                <!-- <li>hello
+                <% user.chatList.forEach(function(chat){ %>
+                <ul>
+                    <a href="" class="contactLink" id= <%= chat.receiverId._id %> data_mail =<%= chat.receiverId.email %>>
+                        <div class="contact">
+                            <img alt="img" class="contactDp" src=<%= chat.receiverId.displayPic == "" ? "/images/nightsky.jpg" : "/user_images/" + chat.receiverId._id + "/displayPic/" + chat.receiverId.displayPic %>>
+                            <div class="details">
+                                <h2 class="chatName"><%= chat.receiverId.name %></h2>
+                                <span class="chatEmail" style="display: none;"><%= chat.receiverId.email %></span>
+                                <span class="chatId" style="display: none;"><%= chat.receiverId._id %></span>
+                                <p>msg</p>
+                            </div>
+                        </div>
+                    </a>
+                </ul>
+                    <% });%>
+                </li> -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chats.js"></script>
+    </body>
+
+    </html>

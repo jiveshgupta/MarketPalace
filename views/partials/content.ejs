@@ -1,0 +1,56 @@
+<div class="content-area">
+    <div class="init">init</div>
+    <div class="content-list">
+        <% productsList.slice().reverse().forEach(function(product){ %>
+            <a href="/product/<%= product._id %>" class="product-link" id='<%=product._id%>'>
+                <div class="content">
+                    <div class="author">
+                        <div class="author-pic"><img src="/user_images/<%= user._id %>/displayPic/<%= user.displayPic %>" alt="" class="author-img"></div>
+                        <div class="author-info">
+                            <div class="author-name">
+                                <%= product.authorName %>
+                            </div>
+                            <div class="author-contact">
+                                <%= product.authorEmail %> , <%= product.authorPhone %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-pic">
+                            <img src="./product_images/<%= product._id %>/<%= product.image[0] %>" alt="img"
+                                class="product-pic-img">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-details"><span class="detail-headings"> price : </span><%= product.price %>
+                            </div>
+                            <div class="product-details"><span class="detail-headings"> product name : </span><%= product.productName %>
+                            </div>
+                            <div class="product-details"><span class="detail-headings"> description : </span><%= product.productDescription %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="others">
+                        <span class="type">type :<%=product.productType%></span>
+                        <div class="others-right">
+                            <% if(product.authorEmail !== user.email) { %>
+                            <a class="others-links interested" id="interested"><button>Interested</button></a>
+                            <% } %>
+
+
+                            <% if(isProfile === true) { %>
+                                <a href= '/deletePost/<%= product._id %>' class="others-links delProduct"><button>Delete Post</button></a>
+                            
+                            <% }else{ %>
+                            
+                            <a href= <%= user.cart.includes( product._id ) ? '/removeFromCart/' + product._id : '/addToCart/' + product._id  %> class="others-links addToCart"><button><%= user.cart.includes( product._id ) ? 'Remove from Cart' : 'Add to Cart' %></button></a>
+
+                            <% } %>
+                        </div>
+
+                    </div>
+
+                </div>
+            </a>
+            <% }); %>
+    </div>
+</div>

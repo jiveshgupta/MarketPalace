@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
+    <link rel="stylesheet" href="./css/root.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="header"></div>
+    <div class="stage">
+        <div class="options">
+            <span class="span">Login</span><span class="span">SignUp</span>
+        </div>
+        <!-- <div class="card"> -->
+            <!-- <div class="toggle"> -->
+                <!-- <div> -->
+                    <input type="checkbox" id=checkbox>
+                    <label for="checkbox" class="label"></label>
+                <!-- </div> -->
+            <!-- </div> -->
+            <!-- <div class="outer"> -->
+            <div class="container">
+                <!-- <div class="inner"> -->
+                    <div class="login">
+                        <form action="/login" class="loginForm" method="GET">
+                            <h2 class="loginHeading">Login</h2>
+                            <input type="text" name="logemail" id="logemail" placeholder="email">
+                            <input type="password" name="logpassword" id="logpassword" placeholder="password">
+                            <a href="#">Forgot Password</a>
+                            <button class="btn"> Submit</button>
+                        </form>
+                    </div>
+                    
+                    <div class="signUp">
+                        <form action="/signup" class="signUpForm" method="POST">
+                            <h2 class="signUpHeading">SignUp</h2>
+                            <input type="text" name="name" id="name" placeholder="name">
+                            <input type="text" name="sigemail" id="sigemail" placeholder="email">
+                            <input type="password" name="sigpassword" id="sigpassword" placeholder="password">
+                            <input type="password" name="cpassword" id="cpassword" placeholder="confirm password">
+                            <input type="text" name="phoneNo" id="phoneNo" placeholder="Phone No.">
+                            <button class="btn"> Submit</button>
+                        </form>
+                    </div>
+                <!-- </div> -->
+            </div>
+            <!-- </div> -->
+        <!-- </div> -->
+    </div>
+    <div class="footer"></div>
+</body>
+</html>

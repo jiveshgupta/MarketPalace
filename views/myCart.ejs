@@ -1,0 +1,43 @@
+
+<%- include ('partials/header.ejs')%>
+    <div class="stage">
+        <div class="left-stage">left
+            
+            <!-- <form action="/myCart" class="filters" method="POST">
+                Price Range:
+                <div>
+                    <input type="number" class="inputText" name='LowerPrice' placeholder='Lower Price' value=<%=lPrice%> >
+                    -
+                    <input type="number" class="inputText" name="HigherPrice" placeholder='Higher Price' value=<%=hPrice%> >
+                </div>
+                Type:
+                <% typesList.forEach(function(type){ %>
+                    <div class="types">
+                        <input type="checkbox" id="<%=type%>" name="<%=type%>" value="<%=type%>" 
+                        <%= keys.includes( type ) ? 'checked' : '' %> >
+                        <label for="<%=type%>">
+                            <%=type%>
+                        </label>
+                    </div>
+                <%});%>
+                <div class="filter-btns">
+                    <button class="applyFilters filter-btn">Apply Filters</button>
+                </div>
+            </form>
+            <a href="/myCart"><button class="filter-btn clearFilters">Clear Filters</button></a>
+                 -->
+        </div>
+        <div class="center-stage">
+            
+            <%- include ('partials/content.ejs')%>
+
+            middle
+        </div>
+        <div class="right-stage">right</div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- <script src="/js/home.js"></script> -->
+</body>
+
+</html>

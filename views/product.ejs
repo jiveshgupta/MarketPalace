@@ -1,0 +1,120 @@
+<%- include ('partials/header.ejs')%>
+
+            <div class="stage">
+                <div class="info">
+                <%for( const pindx  in Object.keys(product.image)){ %>
+                <div id="<%=pindx%>"><%= product.image[pindx] %></div>
+                <%};%>  </div>
+                <div class="left-stage">left</div>
+                <div class="center-stage">
+                    <div class="content-area">
+                        <div class="init">init</div>
+                        <h2>Product Details</h2>
+                        <div class="product-div" id="product-div-id">
+                            <div class="div-group">
+                                <!-- jhii -->
+                                <div class="imageArea">
+                                    <button class="img-left">left</button>
+                                    <img src="/product_images/<%= product._id %>/<%= product.image[ 0 ] %>" alt="img"
+                                        class="productImg">
+                                    <button class="img-right">right</button>
+                                    <span class="img-nums"><span class="img-index">1</span> of <span class="img-tot"><%=Object.keys( product.image).length%></span></span>
+                                </div>
+                                <br>
+                                <!-- <label for="" class="label-group">Image :</label> -->
+                                <!-- <input type="file" class="image" name="productImage" multiple id="img"> -->
+
+                            </div>
+
+
+                            <div class="div-group productPrice">
+                                <label for="" class="label-group">Price :</label>
+                                <span class="productPrice"> <%= product.price %></span>
+                                
+                            </div>
+                            <div class="div-group productName">
+                                <label for="" class="label-group">Product Name :</label>
+                                
+                                <span class="productName"> <%= product.productName %></span>
+                                
+                            </div>
+                            <div class="div-group">
+                                <label for="types" class="label-group">Product Type :</label>
+                                
+                                <span class="productType"> <%= product.productType %></span>
+                                
+                                    <!-- <select name="typeList" id="types" div="product-div-id" class="typeList">
+                            <option value="vehicle">vehicle</option>
+                            <option value="stattionary">stattionary</option>
+                            <option value="electricalApp">electrical appliance</option> -->
+                                    <!-- </select> -->
+
+                            </div>
+                            <div class="div-group">
+                                <div><label for="" class="label-group">Product Description :</label></div>
+                                <span class="productDescription"> <%= product.productDescription %></span>
+                                
+                                
+                                    <!-- <textarea name="productDescription" id="" cols="30" rows="10" class="inputText textArea"
+                            placeholder="Description" div="product-div-id"></textarea> -->
+
+                            </div>
+                            <h2>Contact Details</h2>
+
+                            <div class="div-group">
+                                <label for="" class="label-group">Phone No. :</label>
+                                <span class="authorPhone"> <%= product.authorPhone %></span>
+                                
+                                    <!-- <input type="text" class="inputText" name="authorPhoneNo" placeholder="default no."> -->
+
+                            </div>
+                            <div class="div-group">
+                                <label for="" class="label-group">Email id :</label>
+                                <span class="authorEmail"><%= product.authorEmail%></span>
+                                    <!-- <input type="text" class="inputText" name="authorEmail" placeholder="default email"> -->
+
+                            </div>
+                            <div class="div-group">
+                                <!-- <input type="submit" class="submit-btn"> -->
+                                <button class="interested">Interested</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    middle
+                </div>
+                <div class="right-stage">right</div>
+            </div>
+
+
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+                <script src="/socket.io/socket.io.js"></script>
+                <script src="/js/product.js"></script>
+            <script>
+                var im;
+                var index;
+                var tot = parseInt($('.img-tot').text());
+
+                $(".img-left").click(function () {
+                    index = parseInt($('.img-index').text());
+                    if (index > 1) {
+                        index = index - 1;
+                        divid = `#${index-1}`;im=$(`${divid}`).text();
+                        $('.productImg').attr('src', `/product_images/<%= product._id %>/${im} %>`);
+                        $('.img-index').text(index);
+                    }
+                });
+                $(".img-right").click(function () {
+                    index = parseInt($('.img-index').text());
+                    if (index < tot) {
+                        index = index + 1;divid = `#${index-1}`;im=$(`${divid}`).text();
+                        $('.productImg').attr('src', `/product_images/<%= product._id %>/${im} %>`);
+                        $('.img-index').text(index);
+                    }
+                });
+            </script>
+</body>
+
+</html>
