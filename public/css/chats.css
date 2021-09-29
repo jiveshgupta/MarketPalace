@@ -1,0 +1,134 @@
+.chat-area{
+    border: 1px solid blue;
+    width: 95%;
+    margin: auto;
+    height: 82vh;
+}
+.initChatPic{
+    position: absolute;
+    width: 57%;
+    height: 82%;
+    z-index: 2;
+}
+.currentChat{
+    border: 1px solid green;
+    height: 50px;
+    display: flex;
+    margin-bottom: 1%;
+}
+.receiverDp{
+    border: 1px solid green;
+    height: 47px;
+    width: 47px;
+    border-radius: 50%;
+    margin: auto 4px;
+}
+.receiverDetails{
+    border: 1px solid green;
+    /* margin: 10px; */
+}
+
+.receiverName{
+    display: block;
+    border: 1px solid green;
+    margin: 10px;
+}
+
+/* .receiverId{
+    display: none;
+} */
+/* .receiverEmail{
+    display: none;
+} */
+
+.chats{
+    border: 1px solid red;
+    height: 78%;
+    overflow: auto;
+}
+
+.msg{
+    background-color: chartreuse;
+    width: fit-content;
+    max-width: 50%;
+    margin: 5px;
+    padding: 2px 5px;
+    border-radius: 10px;
+}
+.left{
+    float: left;
+    clear: both;
+}
+
+.right{
+    float: right;
+    clear: both;
+}
+
+.msg-form{
+    border: 1px solid violet;
+    margin-top: 1%;
+}
+.msg-input{
+    font-size: 25px;
+    border-radius: 15px;
+    width: 88%;
+}
+
+.send{
+    font-size: 15px;
+    height: 30px;
+    width: 8%;
+    border-radius: 12px;
+    position: relative;
+    top: -2px;
+}
+.chatsHeading{
+    border: 1px solid green;
+    
+}
+.contactList{
+    border: 1px solid red;
+    height: 85vh;
+    overflow: auto;
+}
+
+.contact{
+    display: flex;
+    height: 50px;
+    margin: 3px;
+    border: 1px solid brown;
+}
+.contactLink{
+    text-decoration: none;
+    width: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.activeChat{
+    background : white;
+}
+
+
+.contactDp{
+    border: 1px solid violet;
+    height: 47px;
+    width: 47px;
+    margin: auto;
+    border-radius: 50%;
+}
+.details{
+    border: 1px solid black;
+    width: 75%;
+    padding: 2px;
+    
+    text-align: left;
+}
+
+.chatName{
+    width: 100%;
+    display: inline;
+    overflow: hidden;
+}
